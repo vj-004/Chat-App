@@ -15,6 +15,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 const databaseURL = process.env.DATABASE_URL;
+const __dirname = path.resolve();
 
 app.use(cors({
     origin: [process.env.ORIGIN],
@@ -47,6 +48,6 @@ setupSocket(server);
 
 mongoose.connect(databaseURL).then(() => console.log('DB connection established')).catch(err => console.log(err.message));
 
-const __dirname = path.resolve();
+
 
 
